@@ -1,6 +1,6 @@
 body {
     /* Set the background image without affecting opacity */
-    background-image: url('path/to/your/background-image.jpg');
+    background-image: url('https://raw.githubusercontent.com/gopiashokan/Airbnb-Analysis/main/airbnb_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
