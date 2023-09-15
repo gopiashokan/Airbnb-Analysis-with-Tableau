@@ -5,7 +5,7 @@ body::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.2; /* Adjust the opacity value (0.0 to 1.0) */
+    opacity: 0.5; /* Adjust the opacity value (0.0 to 1.0) */
     position: fixed;
     top: 0;
     left: 0;
