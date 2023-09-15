@@ -72,13 +72,17 @@ To use this project, follow these steps:
 - **Availability Trends**: Visualize property availability for the next 30, 60, 90, and 360 days.
 
 **Top Host Analysis**
-- **Top Hosts**: Identify and analyze the top 10 hosts based on various features, providing insights into host performance and success.
+
+Identify and analyze the top 10 hosts based on various features, providing insights into host performance and success.
 
 **Visualizations**
-- **Plotly Charts**: Utilize Plotly to create interactive and informative visualizations for EDA, making data exploration efficient and insightful.
+
+Utilize Plotly to create interactive and informative visualizations for EDA, making data exploration efficient and insightful.
 
 **Tableau Dashboard**
-- **Detailed Analysis**: Create a comprehensive Tableau dashboard to visually analyze Airbnb data, with a focus on average prices and the number of reviews based on country and room types.
+
+Create a comprehensive Tableau dashboard to visually analyze Airbnb data, with a focus on average prices and the number of reviews based on country and room types.
+
 Explore the Tableau dashboard [https://public.tableau.com/gopiashokan/Airbnb-Analysis](https://public.tableau.com/views/AirbnbAnalysis_16942685266440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link) for in-depth insights.
 
 
@@ -86,9 +90,11 @@ Explore the Tableau dashboard [https://public.tableau.com/gopiashokan/Airbnb-Ana
 
 Contributions to this project are welcome! If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request.
 
+
 **License**
 
 This project is licensed under the MIT License. Please review the LICENSE file for more details.
+
 
 **Contact**
 
