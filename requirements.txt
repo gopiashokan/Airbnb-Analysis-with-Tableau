@@ -1,0 +1,5 @@
+pandas==2.1.0
+pymongo==4.5.0
+psycopg2==2.9.7
+plotly==5.16.1
+streamlit==1.26.0
