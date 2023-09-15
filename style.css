@@ -1,7 +1,7 @@
 body::before {
     /* Create a pseudo-element to overlay the background image */
     content: "";
-    background-image: url('path/to/your/background-image.jpg');
+    background-image: url('https://raw.githubusercontent.com/gopiashokan/Airbnb-Analysis/main/your-background-image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
