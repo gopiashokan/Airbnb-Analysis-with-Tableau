@@ -1,20 +1,10 @@
-body::before {
-    /* Create a pseudo-element to overlay the background image */
-    content: "";
-    background-image: url('https://raw.githubusercontent.com/gopiashokan/Airbnb-Analysis/main/your-background-image.jpg');
+body {
+    background-image: url('https://raw.githubusercontent.com/gopiashokan/Airbnb-Analysis/main/airbnb_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.2; /* Adjust the opacity value (0.0 to 1.0) */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Place the pseudo-element behind all content */
 }
 
 .stApp {
-    /* Make the Streamlit app background transparent */
     background-color: transparent;
 }
