@@ -4,7 +4,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 1.0; /* Adjust opacity to reduce the visibility ratio */
 }
 
 /* Streamlit Content */
