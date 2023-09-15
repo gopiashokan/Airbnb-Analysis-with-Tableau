@@ -1,8 +1,19 @@
+/* Background Image */
 body {
-    background-image: url('https://raw.githubusercontent.com/gopiashokan/Airbnb-Analysis/main/airbnb_background.jpg');
+    background-image: url('path/to/your/background-image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: 0.1; /* Adjust opacity as needed */
-    background-position: center center; /* Center the image both horizontally and vertically */
+}
+
+/* Streamlit Content */
+.stApp {
+    background-color: transparent;
+}
+
+/* Sidebar (if needed) */
+.sidebar .css-1ed5a58 {
+    background-color: rgba(255, 255, 255, 0.8); /* Example: Semi-transparent white */
+    /* Add any additional styling for the sidebar */
 }
