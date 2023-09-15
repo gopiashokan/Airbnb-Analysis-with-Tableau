@@ -79,6 +79,7 @@ To use this project, follow these steps:
 
 **Tableau Dashboard**
 - **Detailed Analysis**: Create a comprehensive Tableau dashboard to visually analyze Airbnb data, with a focus on average prices and the number of reviews based on country and room types.
+Explore the Tableau dashboard [https://public.tableau.com/gopiashokan/Airbnb-Analysis](https://public.tableau.com/views/AirbnbAnalysis_16942685266440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link) for in-depth insights.
 
 
 **Contributing**
