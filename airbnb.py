@@ -14,15 +14,12 @@ def streamlit_config():
     st.set_page_config(page_title='Airbnb', page_icon=page_icon_url, layout="wide")
 
 
-    # page background color
+    # page header transparent color
     page_background_color = """
     <style>
 
-    [data-testid="stAppViewContainer"] {
-    # background-color: rgba(14,17,23,255);
-    }
-
-    [data-testid="stHeader"] {
+    [data-testid="stHeader"] 
+    {
     background: rgba(0,0,0,0);
     }
 
