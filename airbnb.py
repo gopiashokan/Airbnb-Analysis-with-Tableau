@@ -11,8 +11,8 @@ def streamlit_config():
 
     # page configuration
     page_icon_url = 'https://raw.githubusercontent.com/gopiashokan/Airbnb-Analysis/main/airbnb_logo.png'
-    st.set_page_config(page_title='Airbnb', page_icon=page_icon_url, layout="wide")
-
+    st.set_page_config(page_title='Airbnb',
+                       page_icon=page_icon_url, layout="wide")
 
     # page header transparent color
     page_background_color = """
@@ -27,10 +27,9 @@ def streamlit_config():
     """
     st.markdown(page_background_color, unsafe_allow_html=True)
 
-
     # title and position
     st.markdown(f'<h1 style="text-align: center;">Airbnb Analysis</h1>',
-            unsafe_allow_html=True)
+                unsafe_allow_html=True)
 
 
 class data_collection:
@@ -382,7 +381,6 @@ class feature:
         data['y'] = data[column_name].apply(lambda x: str(x)+'`')
         return data
 
-
     def cleaning_fee():
         gopi = psycopg2.connect(host='localhost',
                                 user='postgres',
@@ -406,7 +404,6 @@ class feature:
         data['y'] = data['cleaning_fee'].apply(lambda x: str(x)+'`')
         return data
 
-
     def location():
         gopi = psycopg2.connect(host='localhost',
                                 user='postgres',
@@ -424,7 +421,6 @@ class feature:
         data = data.rename_axis('S.No')
         data.index = data.index.map(lambda x: '{:^{}}'.format(x, 10))
         return data
-
 
     def feature_analysis():
 
@@ -610,7 +606,6 @@ class host:
         data.index = data.index.map(lambda x: '{:^{}}'.format(x, 10))
         return data
 
-
     def column_value(country, column_name, limit=10):
         gopi = psycopg2.connect(host='localhost',
                                 user='postgres',
@@ -627,7 +622,6 @@ class host:
         s = cursor.fetchall()
         data = pd.DataFrame(s, columns=[column_name, 'count'])
         return data[column_name].values.tolist()
-
 
     def column_value_names(country, column_name, order='desc', limit=10):
         gopi = psycopg2.connect(host='localhost',
@@ -646,7 +640,6 @@ class host:
         data = pd.DataFrame(s, columns=[column_name, 'count'])
         return data[column_name].values.tolist()
 
-
     def column_value_count_not_specified(country, column_name, limit=10):
         gopi = psycopg2.connect(host='localhost',
                                 user='postgres',
@@ -663,7 +656,6 @@ class host:
         s = cursor.fetchall()
         data = pd.DataFrame(s, columns=[column_name, 'count'])
         return data[column_name].values.tolist()
-
 
     def host(country, column_name, column_value, limit=10):
         gopi = psycopg2.connect(host='localhost',
@@ -688,7 +680,6 @@ class host:
         data['y'] = data['host_id'].apply(lambda x: str(x)+'`')
         return data
 
-
     def main(values, label):
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -701,7 +692,6 @@ class host:
             values = host.host(country=country, column_name=values,
                                column_value=b)
             return values
-
 
     def main_min(values, label):
         col1, col2, col3 = st.columns(3)
@@ -717,7 +707,6 @@ class host:
                                column_value=b)
             return values
 
-
     def main_max(values, label):
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -732,7 +721,6 @@ class host:
                                column_value=b)
             return values
 
-
     def not_specified(values, label):
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -746,7 +734,6 @@ class host:
             values = host.host(country=country, column_name=values,
                                column_value=b)
             return values
-
 
     def host_analysis():
 
@@ -911,7 +898,6 @@ class host:
                                       color='#5D9A96', title='Review Scores', title_x=0.45)
 
 
-
 # streamlit title, background color and tab configuration
 streamlit_config()
 st.write('')
@@ -928,50 +914,51 @@ with st.sidebar:
         button = st.button(label='Submit')
 
 
-if button:
+if button and option == 'Migrating to SQL':
+    st.write('')
+    sql.create_table()
+    sql.delete_table()
+    sql.data_migration()
+    st.success('Successfully Data Migrated to SQL Database')
+    st.balloons()
 
-    if option == 'Migrating to SQL':
+
+elif option == 'Features Analysis':
+    try:
         st.write('')
-        sql.create_table()
-        sql.delete_table()
-        sql.data_migration()
-        st.success('Successfully Data Migrated to SQL Database')
-        st.balloons()
+        feature.feature_analysis()
 
-    elif option == 'Features Analysis':
-        st.write('')
-        try:
-            feature.feature_analysis()
-        except:
-            col1, col2 = st.columns(2)
-            with col1:
-                st.info('SQL Database is Currently Empty')
+    except:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.info('SQL Database is Currently Empty')
 
-    elif option == 'Host Analysis':
 
+elif option == 'Host Analysis':
+    try:
         st.write('')
         col1, col2, col3 = st.columns(3)
         with col1:
             countries_list = host.countries_list()
             country = st.selectbox(label='Country', options=countries_list)
-
         if country:
-            try:
-                host.host_analysis()
-            except:
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.info('SQL Database is Currently Empty')
+            host.host_analysis()
 
-    elif option == 'Exit':
-        st.write('')
-        gopi = psycopg2.connect(host='localhost',
-                                user='postgres',
-                                password='root',
-                                database='airbnb')
-        cursor = gopi.cursor()
-        gopi.close()
+    except:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.info('SQL Database is Currently Empty')
 
-        st.success('Thank you for your time. Exiting the application')
-        st.balloons()
+
+elif option == 'Exit':
+    st.write('')
+    gopi = psycopg2.connect(host='localhost',
+                            user='postgres',
+                            password='root',
+                            database='airbnb')
+    cursor = gopi.cursor()
+    gopi.close()
+
+    st.success('Thank you for your time. Exiting the application')
+    st.balloons()
 
